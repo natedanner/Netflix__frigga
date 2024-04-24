@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 /**
  * Contains static validation methods for checking if a name conforms to Asgard naming standards.
  */
-public class NameValidation {
+public final class NameValidation {
 
     private static final Pattern NAME_HYPHEN_CHARS_PATTERN =
             Pattern.compile("^[" + NameConstants.NAME_HYPHEN_CHARS + "]+");

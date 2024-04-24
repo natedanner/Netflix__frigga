@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  * Java bean containing the various pieces of information contained in the appversion tag of an AMI formatted with
  * Netflix standards. Construct using the {@link parseName} factory method.
  */
-public class AppVersion implements Comparable<AppVersion> {
+public final class AppVersion implements Comparable<AppVersion> {
 
     /**
      * Valid app patterns. For example, all of these are valid:
@@ -109,7 +109,7 @@ public class AppVersion implements Comparable<AppVersion> {
         }
 
         if (one == null || two == null) {
-            return (one == null) ? -1 : 1;
+            return one == null ? -1 : 1;
         }
 
         return one.compareTo(two);
@@ -179,48 +179,61 @@ public class AppVersion implements Comparable<AppVersion> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((buildJobName == null) ? 0 : buildJobName.hashCode());
-        result = prime * result + ((buildNumber == null) ? 0 : buildNumber.hashCode());
-        result = prime * result + ((commit == null) ? 0 : commit.hashCode());
-        result = prime * result + ((packageName == null) ? 0 : packageName.hashCode());
-        result = prime * result + ((version == null) ? 0 : version.hashCode());
+        result = prime * result + (buildJobName == null ? 0 : buildJobName.hashCode());
+        result = prime * result + (buildNumber == null ? 0 : buildNumber.hashCode());
+        result = prime * result + (commit == null ? 0 : commit.hashCode());
+        result = prime * result + (packageName == null ? 0 : packageName.hashCode());
+        result = prime * result + (version == null ? 0 : version.hashCode());
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         AppVersion other = (AppVersion) obj;
         if (buildJobName == null) {
-            if (other.buildJobName != null)
+            if (other.buildJobName != null) {
                 return false;
-        } else if (!buildJobName.equals(other.buildJobName))
+            }
+        } else if (!buildJobName.equals(other.buildJobName)) {
             return false;
+        }
         if (buildNumber == null) {
-            if (other.buildNumber != null)
+            if (other.buildNumber != null) {
                 return false;
-        } else if (!buildNumber.equals(other.buildNumber))
+            }
+        } else if (!buildNumber.equals(other.buildNumber)) {
             return false;
+        }
         if (commit == null) {
-            if (other.commit != null)
+            if (other.commit != null) {
                 return false;
-        } else if (!commit.equals(other.commit))
+            }
+        } else if (!commit.equals(other.commit)) {
             return false;
+        }
         if (packageName == null) {
-            if (other.packageName != null)
+            if (other.packageName != null) {
                 return false;
-        } else if (!packageName.equals(other.packageName))
+            }
+        } else if (!packageName.equals(other.packageName)) {
             return false;
+        }
         if (version == null) {
-            if (other.version != null)
+            if (other.version != null) {
                 return false;
-        } else if (!version.equals(other.version))
+            }
+        } else if (!version.equals(other.version)) {
             return false;
+        }
         return true;
     }
 

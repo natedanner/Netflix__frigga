@@ -97,7 +97,7 @@ public class Names {
     }
 
     private String checkEmpty(String input) {
-        return (input != null && !input.isEmpty()) ? input : null;
+        return input != null && !input.isEmpty() ? input : null;
     }
 
     public String getGroup() {
@@ -176,8 +176,12 @@ public class Names {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Names names = (Names) o;
         return Objects.equals(group, names.group);
     }

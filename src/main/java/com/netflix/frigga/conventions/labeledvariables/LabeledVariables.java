@@ -75,8 +75,12 @@ public class LabeledVariables {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+      if (this == o) {
+          return true;
+      }
+      if (o == null || getClass() != o.getClass()) {
+          return false;
+      }
     LabeledVariables that = (LabeledVariables) o;
     return Objects.equals(countries, that.countries) &&
         Objects.equals(devPhase, that.devPhase) &&

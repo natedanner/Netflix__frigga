@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
  * Bean containing the various pieces of information available from the description of an AMI created by Netflix's
  * bakery. Construct using the {@link parseDescription} factory method.
  */
-public class BaseAmiInfo {
+public final class BaseAmiInfo {
 
     private static final String IMAGE_ID = "ami-[a-z0-9]{8}";
     private static final Pattern BASE_AMI_ID_PATTERN = Pattern.compile("^.*?base_ami_id=(" + IMAGE_ID + ").*?");
@@ -110,36 +110,45 @@ public class BaseAmiInfo {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((baseAmiDate == null) ? 0 : baseAmiDate.hashCode());
-        result = prime * result + ((baseAmiId == null) ? 0 : baseAmiId.hashCode());
-        result = prime * result + ((baseAmiName == null) ? 0 : baseAmiName.hashCode());
+        result = prime * result + (baseAmiDate == null ? 0 : baseAmiDate.hashCode());
+        result = prime * result + (baseAmiId == null ? 0 : baseAmiId.hashCode());
+        result = prime * result + (baseAmiName == null ? 0 : baseAmiName.hashCode());
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         BaseAmiInfo other = (BaseAmiInfo) obj;
         if (baseAmiDate == null) {
-            if (other.baseAmiDate != null)
+            if (other.baseAmiDate != null) {
                 return false;
-        } else if (!baseAmiDate.equals(other.baseAmiDate))
+            }
+        } else if (!baseAmiDate.equals(other.baseAmiDate)) {
             return false;
+        }
         if (baseAmiId == null) {
-            if (other.baseAmiId != null)
+            if (other.baseAmiId != null) {
                 return false;
-        } else if (!baseAmiId.equals(other.baseAmiId))
+            }
+        } else if (!baseAmiId.equals(other.baseAmiId)) {
             return false;
+        }
         if (baseAmiName == null) {
-            if (other.baseAmiName != null)
+            if (other.baseAmiName != null) {
                 return false;
-        } else if (!baseAmiName.equals(other.baseAmiName))
+            }
+        } else if (!baseAmiName.equals(other.baseAmiName)) {
             return false;
+        }
         return true;
     }
 
